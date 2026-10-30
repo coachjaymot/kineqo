@@ -1,0 +1,986 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Kineqo Basketball — youth basketball built on opportunity, development, and belonging in the Bay Area.">
+<title>Kineqo Basketball | More Than a Game</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --black: #070707;
+  --charcoal: #121212;
+  --panel: #1b1a17;
+  --gold: #d6ae47;
+  --goldlight: #f8dc88;
+  --white: #f9f7f1;
+  --muted: #b7b3a9;
+  --line: #3b3528;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--black);
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.65;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button { font: inherit; }
+
+h1, h2, h3, .logo {
+  font-family: 'Barlow Condensed', Impact, sans-serif;
+  letter-spacing: .015em;
+  line-height: .96;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(5.4rem, 13vw, 12rem);
+  font-weight: 900;
+}
+
+h2 { font-size: clamp(3.5rem, 7vw, 7.5rem); }
+h3 { font-size: 2.65rem; }
+p { margin-top: 0; }
+
+.container {
+  width: min(1160px, calc(100% - 44px));
+  margin: auto;
+}
+
+.eyebrow {
+  font-size: .74rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--goldlight);
+  font-weight: 800;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 24px;
+  border-radius: 3px;
+  font-weight: 800;
+  font-size: .82rem;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  transition: transform .2s, background .2s;
+}
+
+.button:hover { transform: translateY(-2px); }
+
+.button.gold {
+  background: var(--gold);
+  color: #10100e;
+}
+
+.button.gold:hover { background: var(--goldlight); }
+
+.button.ghost {
+  border: 1px solid #bba66d;
+  color: var(--white);
+}
+
+/* NAVIGATION */
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+header .nav {
+  min-height: 86px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  border-bottom: 1px solid #ffffff30;
+}
+
+.brand {
+  display: flex;
+  gap: 11px;
+  align-items: center;
+}
+
+.brand-icon {
+  height: 43px;
+  width: 43px;
+  border: 2px solid var(--gold);
+  color: var(--gold);
+  display: grid;
+  place-items: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 30px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.brand-text {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.42rem;
+  font-weight: 900;
+  line-height: .9;
+  letter-spacing: .08em;
+}
+
+.brand-text span {
+  display: block;
+  color: var(--gold);
+  font-size: .88rem;
+  letter-spacing: .17em;
+  margin-top: 6px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 27px;
+  font-size: .77rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-weight: 800;
+}
+
+nav a:hover { color: var(--goldlight); }
+
+.menu {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--white);
+  padding: 9px 13px;
+  cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+  position: relative;
+  min-height: 780px;
+  padding: 170px 0 110px;
+  overflow: hidden;
+  background: radial-gradient(
+    ellipse at 76% 50%,
+    #44320f 0,
+    #201b13 30%,
+    #070707 68%
+  );
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  align-items: center;
+  gap: 30px;
+}
+
+.hero h1 { margin: 15px 0 23px; }
+
+.hero h1 span {
+  display: block;
+  color: var(--gold);
+}
+
+.hero-description {
+  max-width: 520px;
+  color: #d8d3c7;
+  font-size: 1.09rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+  margin-top: 31px;
+}
+
+.hero-note {
+  margin-top: 50px;
+  color: var(--goldlight);
+  font-size: .68rem;
+  text-transform: uppercase;
+  letter-spacing: .17em;
+  font-weight: 800;
+}
+
+/* GOLD BASKETBALL GRAPHIC */
+
+.ball-frame {
+  height: 430px;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.ball {
+  width: min(360px, 85vw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(
+    circle at 27% 23%,
+    #ffe7a2,
+    #d0a13b 44%,
+    #7c501b 90%
+  );
+  box-shadow:
+    0 0 80px #c58d1a30,
+    25px 35px 65px #0009;
+  transform: rotate(-23deg);
+}
+
+.ball:before {
+  content: '';
+  position: absolute;
+  inset: -12%;
+  border-radius: 50%;
+  background:
+    linear-gradient(
+      90deg,
+      transparent 48.5%,
+      #211507 48.5% 51.5%,
+      transparent 51.5%
+    ),
+    linear-gradient(
+      0deg,
+      transparent 48.5%,
+      #211507 48.5% 51.5%,
+      transparent 51.5%
+    );
+}
+
+.ball:after {
+  content: '';
+  position: absolute;
+  inset: 14% -27%;
+  border-left: 8px solid #211507;
+  border-right: 8px solid #211507;
+  border-radius: 50%;
+}
+
+.ball-ring {
+  position: absolute;
+  width: 460px;
+  height: 460px;
+  border: 1px solid #d6ae473d;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.ball { z-index: 1; }
+
+.stamp {
+  position: absolute;
+  bottom: 4px;
+  right: 0;
+  background: var(--gold);
+  padding: 12px 20px;
+  color: #100e0a;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: .71rem;
+  letter-spacing: .1em;
+  z-index: 2;
+}
+
+/* GOLD STRIP */
+
+.strip {
+  background: var(--gold);
+  color: #10100c;
+  padding: 15px 0;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .11em;
+  text-align: center;
+}
+
+/* SECTIONS */
+
+.section { padding: 110px 0; }
+
+.split {
+  display: grid;
+  grid-template-columns: .85fr 1.15fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.lede {
+  font-size: clamp(1.3rem, 2.2vw, 1.9rem);
+  font-weight: 700;
+  line-height: 1.48;
+}
+
+.muted { color: var(--muted); }
+
+/* PURPOSE */
+
+.mission { background: #121212; }
+
+.mission p { color: #c6c0b4; }
+
+.mission .lede { color: var(--white); }
+
+.values {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 34px;
+}
+
+.value {
+  border-top: 2px solid var(--gold);
+  padding-top: 17px;
+  font-weight: 800;
+  font-size: .88rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+.value span {
+  display: block;
+  color: var(--gold);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 2.7rem;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+/* STATEMENT */
+
+.statement {
+  background: linear-gradient(120deg, #302512, #0b0b0a);
+  text-align: center;
+  padding: 100px 0;
+  border-top: 1px solid #54401f;
+  border-bottom: 1px solid #54401f;
+}
+
+.statement h2 {
+  font-size: clamp(4.3rem, 9vw, 9rem);
+  margin: 12px auto 23px;
+  max-width: 900px;
+}
+
+.statement h2 span { color: var(--gold); }
+
+.statement p {
+  max-width: 610px;
+  margin: auto;
+  color: #d2c8b4;
+}
+
+/* BASKETBALL PROGRAMMING */
+
+.program-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 17px;
+  margin-top: 42px;
+}
+
+.program-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  min-height: 315px;
+  padding: 31px;
+  display: flex;
+  flex-direction: column;
+}
+
+.program-card .num {
+  color: var(--gold);
+  font-size: .84rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  margin-bottom: 48px;
+}
+
+.program-card h3 { margin-bottom: 15px; }
+
+.program-card p {
+  color: var(--muted);
+  font-size: .94rem;
+}
+
+.program-card .status {
+  margin-top: auto;
+  color: var(--goldlight);
+  font-size: .7rem;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  font-weight: 800;
+  padding-top: 14px;
+}
+
+/* PHILOSOPHY */
+
+.philosophy {
+  background: #f0e7d1;
+  color: #16130d;
+}
+
+.philosophy .eyebrow { color: #8a6718; }
+
+.philosophy p { color: #4f493c; }
+
+.philosophy .lede { color: #191711; }
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 42px;
+}
+
+.step {
+  border-top: 2px solid #9e7a2a;
+  padding-top: 16px;
+}
+
+.step strong {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 2.2rem;
+  text-transform: uppercase;
+  display: block;
+}
+
+.step p { font-size: .89rem; }
+
+/* CONTACT */
+
+.contact {
+  background: #15130e;
+  text-align: center;
+}
+
+.contact h2 {
+  max-width: 750px;
+  margin: 15px auto 24px;
+}
+
+.contact p {
+  max-width: 640px;
+  margin: 0 auto 29px;
+  color: var(--muted);
+}
+
+.contact .hint {
+  font-size: .77rem;
+  margin-top: 17px;
+  color: #a9a08f;
+}
+
+/* FOOTER */
+
+footer {
+  background: #060606;
+  padding: 33px 0;
+  border-top: 1px solid #3f331e;
+  color: #a59c8b;
+  font-size: .8rem;
+}
+
+.footer-grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+}
+
+footer strong { color: var(--gold); }
+
+/* MOBILE DESIGN */
+
+@media(max-width: 900px) {
+  .menu { display: block; }
+
+  nav {
+    display: none;
+    position: absolute;
+    top: 77px;
+    left: 22px;
+    right: 22px;
+    padding: 22px;
+    background: #18140d;
+    border: 1px solid #715723;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 17px;
+  }
+
+  nav.open { display: flex; }
+
+  .hero-grid,
+  .split {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .hero { padding-bottom: 65px; }
+
+  .ball-frame { height: 340px; }
+  .ball { width: 270px; }
+
+  .ball-ring {
+    width: 340px;
+    height: 340px;
+  }
+
+  .program-grid { grid-template-columns: 1fr 1fr; }
+  .steps { grid-template-columns: 1fr 1fr; }
+  .section { padding: 80px 0; }
+}
+
+@media(max-width: 600px) {
+  h1 { font-size: clamp(5rem, 19vw, 7.2rem); }
+
+  .program-grid,
+  .values {
+    grid-template-columns: 1fr;
+  }
+
+  .program-card { min-height: 250px; }
+  .program-card .num { margin-bottom: 22px; }
+
+  .footer-grid {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .strip { font-size: 1.2rem; }
+  .hero { padding-top: 135px; }
+  .stamp { right: 5px; }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<header>
+  <div class="container nav">
+
+    <a class="brand" href="#top"
+       aria-label="Kineqo Basketball home">
+      <span class="brand-icon">K</span>
+      <span class="brand-text">
+        KINEQO
+        <span>BASKETBALL</span>
+      </span>
+    </a>
+
+    <button class="menu" id="menu"
+      aria-controls="navigation"
+      aria-expanded="false">
+      ☰ Menu
+    </button>
+
+    <nav id="navigation" aria-label="Main navigation">
+      <a href="#purpose">Our Purpose</a>
+      <a href="#programs">Programming</a>
+      <a href="#philosophy">Philosophy</a>
+      <a href="./index.html">Kinesiology Ecosystems</a>
+      <a class="button gold" href="#connect">
+        Get Involved ↗
+      </a>
+    </nav>
+
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+
+<section class="hero">
+  <div class="container hero-grid">
+
+    <div>
+      <span class="eyebrow">
+        Bay Area · Youth Basketball · Opportunity
+      </span>
+
+      <h1>
+        More than
+        <span>a game.</span>
+      </h1>
+
+      <p class="hero-description">
+        Second chances. Real opportunities.
+        A place to belong. Kineqo Basketball
+        is building a youth basketball community
+        where development matters and potential
+        isn't limited by circumstance.
+      </p>
+
+      <div class="actions">
+        <a class="button gold" href="#programs">
+          Explore the Vision ↗
+        </a>
+
+        <a class="button ghost" href="#purpose">
+          Why We Exist
+        </a>
+      </div>
+
+      <div class="hero-note">
+        A basketball initiative of Kinesiology Ecosystems
+      </div>
+    </div>
+
+    <div class="ball-frame" aria-hidden="true">
+      <div class="ball-ring"></div>
+      <div class="ball"></div>
+      <span class="stamp">Opportunity starts here</span>
+    </div>
+
+  </div>
+</section>
+
+<div class="strip">
+  Access ✳ Development ✳ Opportunity ✳ Community
+</div>
+
+<!-- OUR PURPOSE -->
+
+<section class="section mission" id="purpose">
+  <div class="container split">
+
+    <div>
+      <span class="eyebrow">01 / Our Purpose</span>
+      <h2>
+        Talent is everywhere.<br>
+        <span style="color:var(--gold)">
+          Opportunity isn't.
+        </span>
+      </h2>
+    </div>
+
+    <div>
+      <p class="lede">
+        We believe a player's future should
+        be shaped by possibility, not by what
+        they've lacked in the past.
+      </p>
+
+      <p>
+        Basketball can be a doorway to confidence,
+        discipline, community, leadership, and
+        belonging. Kineqo is being built to make
+        that doorway wider — especially for young
+        people who need someone willing to invest
+        in their growth.
+      </p>
+
+      <p>
+        We can pursue competition and excellence
+        without forgetting the bigger responsibility:
+        helping young people become stronger
+        athletes and people.
+      </p>
+
+      <div class="values">
+        <div class="value">
+          <span>01</span>Opportunity
+        </div>
+        <div class="value">
+          <span>02</span>Development
+        </div>
+        <div class="value">
+          <span>03</span>Belonging
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- THE KINEQO MINDSET -->
+
+<section class="statement">
+  <div class="container">
+
+    <span class="eyebrow">The Kineqo Mindset</span>
+
+    <h2>
+      We don't
+      <span>count people out.</span>
+    </h2>
+
+    <p>
+      A missed chance, a difficult season,
+      or a late start shouldn't define a
+      young athlete. We believe in coaching
+      the player in front of us — and creating
+      a pathway forward.
+    </p>
+
+  </div>
+</section>
+
+<!-- BASKETBALL PROGRAMMING -->
+
+<section class="section" id="programs">
+  <div class="container">
+
+    <span class="eyebrow">
+      02 / Basketball Programming
+    </span>
+
+    <h2>
+      Built to develop.<br>
+      <span style="color:var(--gold)">
+        Built to compete.
+      </span>
+    </h2>
+
+    <p class="muted"
+       style="max-width:670px;margin-top:22px">
+      Our vision is to create connected
+      opportunities for young players —
+      from fundamental skill development
+      to competitive team basketball.
+      Specific schedules and offerings
+      will be announced as they are confirmed.
+    </p>
+
+    <div class="program-grid">
+
+      <article class="program-card">
+        <span class="num">01 / FOUNDATION</span>
+
+        <h3>Skills &amp; Fundamentals</h3>
+
+        <p>
+          Ball handling, shooting, footwork,
+          decision-making, and confidence
+          developed through purposeful instruction.
+        </p>
+
+        <span class="status">
+          Planned programming
+        </span>
+      </article>
+
+      <article class="program-card">
+        <span class="num">02 / CONNECTION</span>
+
+        <h3>Team Development</h3>
+
+        <p>
+          Communication, responsibility,
+          collaboration, and game understanding
+          through a team-first learning environment.
+        </p>
+
+        <span class="status">
+          Planned programming
+        </span>
+      </article>
+
+      <article class="program-card">
+        <span class="num">03 / COMPETITION</span>
+
+        <h3>AAU Basketball</h3>
+
+        <p>
+          A vision for competitive travel
+          basketball that balances high
+          standards with pathways for
+          growth and opportunity.
+        </p>
+
+        <span class="status">
+          In development
+        </span>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- OUR PHILOSOPHY -->
+
+<section class="section philosophy" id="philosophy">
+  <div class="container">
+
+    <span class="eyebrow">
+      03 / Our Philosophy
+    </span>
+
+    <div class="split">
+
+      <h2>
+        Earn it.<br>
+        Learn it.<br>
+        Pass it on.
+      </h2>
+
+      <div>
+        <p class="lede">
+          Development isn't only about becoming
+          a better basketball player. It's
+          about becoming someone who can
+          respond to challenges, contribute
+          to a team, and recognize opportunity
+          in others.
+        </p>
+
+        <p>
+          We want to build a culture with
+          demanding standards and genuine
+          support — where players are coached,
+          challenged, and valued as people.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="steps">
+
+      <div class="step">
+        <strong>Welcome</strong>
+        <p>Make room for different beginnings.</p>
+      </div>
+
+      <div class="step">
+        <strong>Teach</strong>
+        <p>Build habits and fundamentals that last.</p>
+      </div>
+
+      <div class="step">
+        <strong>Challenge</strong>
+        <p>
+          Encourage effort, accountability,
+          and resilience.
+        </p>
+      </div>
+
+      <div class="step">
+        <strong>Grow</strong>
+        <p>Celebrate progress on and off the court.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- GET INVOLVED -->
+
+<section class="section contact" id="connect">
+  <div class="container">
+
+    <span class="eyebrow">04 / Get Involved</span>
+
+    <h2>
+      Be part of
+      <span style="color:var(--gold)">
+        what's next.
+      </span>
+    </h2>
+
+    <p>
+      Interested in future basketball opportunities,
+      coaching, volunteering, or community partnerships?
+      Reach out as we develop the next chapter
+      of Kineqo Basketball.
+    </p>
+
+    <a class="button gold"
+       href="mailto:YOUR-EMAIL@example.com?subject=Kineqo%20Basketball%20Inquiry">
+      Contact Kineqo ↗
+    </a>
+
+    <p class="hint">
+      Before publishing, replace YOUR-EMAIL@example.com
+      in the HTML with your email address.
+    </p>
+
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+  <div class="container footer-grid">
+
+    <div>
+      <strong>KINEQO BASKETBALL</strong><br>
+      More than a game.
+    </div>
+
+    <div>
+      An initiative of
+      <a href="./index.html"
+         style="text-decoration:underline">
+        Kinesiology Ecosystems
+      </a>
+    </div>
+
+    <div>
+      © <span id="year"></span> Kineqo Basketball
+    </div>
+
+  </div>
+</footer>
+
+<!-- JAVASCRIPT -->
+
+<script>
+document.getElementById('year').textContent =
+  new Date().getFullYear();
+
+const toggle = document.getElementById('menu');
+const nav = document.getElementById('navigation');
+
+toggle.addEventListener('click', () => {
+  const open = nav.classList.toggle('open');
+  toggle.setAttribute('aria-expanded', String(open));
+});
+
+nav.querySelectorAll('a').forEach(link =>
+  link.addEventListener('click', () => {
+    nav.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  })
+);
+</script>
+
+</body>
+</html>
